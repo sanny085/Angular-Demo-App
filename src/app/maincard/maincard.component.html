@@ -1,0 +1,17 @@
+<div class="p-2">
+  <p>
+    {{ "My Student" }} name is {{ name }}, Age is {{ age }}. {{ isMature() }}
+  </p>
+  <!-- Property Binding - [] and Even Bindind - () -->
+  <button
+    [disabled]="!allow"
+    class="btn btn-primary"
+    (click)="onRegistrationStatus()"
+  >
+    Start Registration
+  </button>
+  <!-- String Interpolation -->
+  <p class="text-warning">
+    {{ registrationStatus }}
+  </p>
+</div>
