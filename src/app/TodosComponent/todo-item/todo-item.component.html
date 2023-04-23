@@ -1,0 +1,22 @@
+<div class="my-3">
+  <div [ngClass]="{ 'text-decoration-line-through': todo.active }">
+    <h5 class="text">{{ todo.title }}</h5>
+    <p>{{ todo.desc }}</p>
+    <button class="btn btn-sm btn-danger" (click)="onClick(todo)">
+      Delete The Todo
+    </button>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="mark{{ index }}"
+        name="mark{{ index }}"
+        (click)="updateStatus(todo)"
+        [checked]="todo.active"
+      />
+      <label class="form-check-label" for="exampleCheck{{ index }}"
+        >Mark As Done</label
+      >
+    </div>
+  </div>
+</div>

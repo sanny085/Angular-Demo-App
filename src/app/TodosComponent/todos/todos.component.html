@@ -1,0 +1,21 @@
+<div class="container my-5 mb-5">
+  <h2 class="text-center py-2 text-secondary">All Todos</h2>
+
+  <app-add-todo (addTodo)="onAddTodo($event)" />
+
+  <div *ngIf="todo.length > 0; else elseBlock">
+    <ul *ngFor="let item of todo; index as i">
+      <!-- pass data to child component -->
+      <app-todo-item
+        [index]="i"
+        [todo]="item"
+        (updateTodoStatus)="onUpdateTodoStatus($event)"
+        (todoDelete)="onDelete($event)"
+      />
+    </ul>
+  </div>
+
+  <ng-template #elseBlock>
+    <span>No Users</span>
+  </ng-template>
+</div>
