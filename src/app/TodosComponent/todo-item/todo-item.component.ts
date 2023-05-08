@@ -12,6 +12,10 @@ export class TodoItemComponent {
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
   @Output() updateTodoStatus: EventEmitter<Todo> = new EventEmitter();
 
+  getColor = () => {
+    return this.todo.active ? '#ede8e8' : '';
+  };
+
   onClick = (todo: Todo) => {
     this.todoDelete.emit(todo);
   };

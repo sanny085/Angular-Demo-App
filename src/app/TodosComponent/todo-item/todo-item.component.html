@@ -1,4 +1,4 @@
-<div class="my-3">
+<div class="my-3" [ngStyle]="{ backgroundColor: getColor() }">
   <div [ngClass]="{ 'text-decoration-line-through': todo.active }">
     <h5 class="text">{{ todo.title }}</h5>
     <p>{{ todo.desc }}</p>

@@ -13,6 +13,7 @@ import { AddTodoComponent } from './TodosComponent/add-todo/add-todo.component';
 
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'users', component: TodosComponent },
   { path: 'about', component: AboutComponent },
   { path: 'servers', component: ServersComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   { path: '**', component: ServerComponent },
 ];
 
@@ -35,6 +37,7 @@ const routes: Routes = [
     TodoItemComponent,
     AddTodoComponent,
     AboutComponent,
+    ContactUsComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],

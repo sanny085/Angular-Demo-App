@@ -9,7 +9,6 @@ export class AddTodoComponent {
   title: string = '';
   description: string = '';
   @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
-
   constructor() {}
   onSubmit = () => {
     if (this.title != '' && this.description != '') {

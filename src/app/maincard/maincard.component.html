@@ -1,6 +1,6 @@
 <div class="container shadow">
-  <div class="row bg">
-    <div class="col-xs-12">
+  <div class="row bg p-2">
+    <div class="col-md-6">
       <!-- {{title}} -->
       <h4 class="text-success">Main Screen</h4>
       <hr />
@@ -11,7 +11,7 @@
           {{ "My Student" }} name is {{ name }}, Age is {{ age }}.
           {{ isMature() }}
         </p>
-        <!-- Property Binding - [] and Even Bindind - () -->
+        <!-- Property Binding - [] and Event Bindind - () -->
         <button
           [disabled]="!allow"
           class="btn btn-outline-success"
@@ -24,6 +24,49 @@
           {{ registrationStatus }}
         </p>
       </div>
+    </div>
+    <div class="col-md-6">
+      <form (ngSubmit)="onSearchCollege()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >College Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="collegeName"
+            name="collegeName"
+            [(ngModel)]="collegeName"
+          />
+          <div
+            id="emailHelp"
+            class="form-text"
+            *ngIf="isExistCollege; else notExistCollege"
+          >
+            {{ collegeName }} is available in university
+          </div>
+          <ng-template #notExistCollege>College is not available </ng-template>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button
+            [disabled]="collegeName.length <= 0"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+          <span *ngIf="collegeName.length > 0; else removeClearButton">
+            <button
+              type="submit"
+              class="btn btn-danger"
+              (click)="onCollegeSearchClear()"
+            >
+              Clear
+            </button>
+          </span>
+          <ng-template #removeClearButton>&nbsp; </ng-template>
+        </div>
+      </form>
     </div>
   </div>
 </div>
